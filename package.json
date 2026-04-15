@@ -1,6 +1,6 @@
 {
     "name": "postcss-bettera11y",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "PostCSS plugin that runs BetterA11y accessibility audits on your CSS.",
     "license": "MIT",
     "type": "module",
