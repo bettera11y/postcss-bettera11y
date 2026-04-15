@@ -1,0 +1,16 @@
+{
+    "name": "postcss-demo",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "postcss input.css -o dist/output.css"
+    },
+    "dependencies": {
+        "bettera11y": "^0.4.2",
+        "postcss": "^8.5.6",
+        "postcss-bettera11y": "file:../.."
+    },
+    "devDependencies": {
+        "postcss-cli": "^11.0.1"
+    }
+}

@@ -1,0 +1,5 @@
+/* Intentional low contrast in one rule block — postcss-bettera11y should emit PostCSS warnings. */
+.bad {
+    color: #777777;
+    background-color: #888888;
+}

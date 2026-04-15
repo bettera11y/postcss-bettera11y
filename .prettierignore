@@ -1,0 +1,7 @@
+dist
+examples/**/dist
+tests/__snapshots__
+coverage
+node_modules
+tsup.config.bundled_*.mjs
+CHANGELOG.md

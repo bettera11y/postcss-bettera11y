@@ -1,0 +1,61 @@
+{
+    "name": "postcss-bettera11y",
+    "version": "0.1.0",
+    "description": "PostCSS plugin that runs BetterA11y accessibility audits on your CSS.",
+    "license": "MIT",
+    "type": "module",
+    "keywords": [
+        "postcss",
+        "postcss-plugin",
+        "bettera11y",
+        "a11y",
+        "accessibility",
+        "css"
+    ],
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "typecheck": "tsc --noEmit",
+        "lint": "tsc --noEmit",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "commitlint": "commitlint --from=HEAD~1 --to=HEAD",
+        "test": "vitest run",
+        "test:smoke:esm": "node --input-type=module -e \"import('./dist/index.js').then((m)=>{ if (!m.default || !m.bettera11yPostcss) throw new Error('Missing exports'); })\"",
+        "test:smoke:cjs": "node -e \"const m=require('./dist/index.cjs'); if (!m.default || !m.bettera11yPostcss) throw new Error('Missing exports');\"",
+        "validate:release": "npm run format:check && npm run typecheck && npm run test && npm run build && npm run test:smoke:esm && npm run test:smoke:cjs",
+        "example:build": "npm run build && npm install --prefix examples/postcss-demo && npm run build --prefix examples/postcss-demo",
+        "prepare": "husky"
+    },
+    "peerDependencies": {
+        "bettera11y": "^0.4.0",
+        "postcss": "^8.4.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.8.0",
+        "@commitlint/config-conventional": "^19.8.0",
+        "@types/node": "^22.15.3",
+        "bettera11y": "^0.4.2",
+        "husky": "^9.1.7",
+        "postcss": "^8.5.6",
+        "prettier": "^3.5.3",
+        "tsup": "^8.4.0",
+        "typescript": "^5.8.3",
+        "vitest": "^2.1.8"
+    }
+}
